@@ -19,12 +19,12 @@ class TasksController < ApplicationController
   end
 
   def ops
-    tasks = Task.all(poc: 'Operations' )
+    tasks = Task.where(poc: 'Operations' )
     render json: tasks
   end
 
   def maint
-    tasks = Task.all(poc: 'Maintenance' )
+    tasks = Task.where(poc: 'Maintenance' )
     render json: tasks
   end
 
