@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   end
 
   def admin
-    filteredTasks = Task.all(poc: 'Admin' )
+    filteredTasks = Task.where(poc: 'Admin' )
     render json: filteredTasks
   end
 
