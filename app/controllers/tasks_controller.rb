@@ -28,6 +28,10 @@ class TasksController < ApplicationController
     render json: tasks
   end
 
+  def destroy
+    Task.destroy(params[:id])
+  end
+
   def task_params
     params.require(:task).permit(:name, :poc, :dminuscat, :duedate, :taskstatus, :notes)
   end
