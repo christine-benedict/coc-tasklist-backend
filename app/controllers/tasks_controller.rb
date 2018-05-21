@@ -14,12 +14,12 @@ class TasksController < ApplicationController
   end
 
   def admin
-    tasks = Task.all(poc: 'Admin' )
-    render json: tasks
+    filteredTasks = Task.all(poc: 'Admin' )
+    render json: filteredTasks
   end
 
   def ops
-    tasks = Task.all(poc: 'Ops' )
+    tasks = Task.all(poc: 'Operations' )
     render json: tasks
   end
 
