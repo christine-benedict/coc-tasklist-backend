@@ -13,6 +13,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def done
+    task = Task.find(params[:id])
+    task.update(taskstatus: 'Complete')
+    render json: task
+  end
+
   def admin
     filteredTasks = Task.where(poc: 'Admin' )
     render json: filteredTasks
