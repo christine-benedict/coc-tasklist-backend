@@ -19,6 +19,12 @@ class TasksController < ApplicationController
     render json: task
   end
 
+  def edit_notes
+    task = Task.find(params[:id])
+    task.update(notes: params[:notes])
+    render json: task
+  end
+
   def admin
     filteredTasks = Task.where(poc: 'Admin' )
     render json: filteredTasks
