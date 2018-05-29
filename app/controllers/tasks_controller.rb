@@ -21,7 +21,7 @@ class TasksController < ApplicationController
 
   def edit_notes
     task = Task.find(params[:id])
-    task.update(notes: params[:notes])
+    task.update(notes: notes_params)
     render json: task
   end
 
@@ -46,5 +46,8 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :poc, :dminuscat, :duedate, :taskstatus, :notes)
+  end
+  def notes_params
+    params.require(:notes)
   end
 end
