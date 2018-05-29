@@ -15,8 +15,13 @@ class TasksController < ApplicationController
 
   def done
     task = Task.find(params[:id])
-    task.update(taskstatus: 'Complete')
-    render json: task
+    if task.taskstatus == 'Incomplete'
+      task.update(taskstatus: 'Complete')
+      render json: task
+    else
+      task.update(taskstatus: 'Incomplete')
+      render json: task
+    end
   end
 
   def edit_notes
